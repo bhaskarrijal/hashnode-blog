@@ -22,7 +22,7 @@ export const PersonalHeader = () => {
 		<ul className="flex list-none flex-row items-center gap-4 text-xs font-semibold uppercase tracking-tight text-neutral-600 dark:text-neutral-300">
 			{visibleItems.map((item) => (
 				<li key={item.url}>
-					<a href={item.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+					<a href={item.url} rel="noopener noreferrer" className="hover:underline">
 						{item.label}
 					</a>
 				</li>
