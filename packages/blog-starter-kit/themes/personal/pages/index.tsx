@@ -91,7 +91,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 					thoughts, opinions, ideas and experiences
 				</i></p>
 				{posts.length > 0 && <SuperMinimalPosts context="home" posts={posts} />}
-				<Link href="/index.html">
+				<Link href="https://bhaskarrijal.me">
 					back
 				</Link>
 			</div>
