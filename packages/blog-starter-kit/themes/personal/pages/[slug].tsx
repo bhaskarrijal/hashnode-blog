@@ -28,6 +28,7 @@ import {
 } from '../generated/graphql';
 // @ts-ignore
 import { triggerCustomWidgetEmbed } from '@starter-kit/utils/trigger-custom-widget-embed';
+import Image from 'next/image';
 
 type PostProps = {
 	type: 'post';
@@ -53,7 +54,7 @@ const Post = ({ publication, post }: PostProps) => {
 		<li key={tag.id}>
 			<Link
 				href={`/tag/${tag.slug}`}
-				className="block rounded-full border px-2 py-1 font-medium hover:bg-slate-50 dark:border-neutral-800 dark:hover:bg-neutral-800 md:px-4"
+				className="block px-2 py-1 font-medium border rounded-full hover:bg-slate-50 dark:border-neutral-800 dark:hover:bg-neutral-800 md:px-4"
 			>
 				#{tag.slug}
 			</Link>
@@ -86,10 +87,10 @@ const Post = ({ publication, post }: PostProps) => {
 
 	const coverImageSrc = !!post.coverImage?.url
 		? resizeImage(post.coverImage.url, {
-				w: 1600,
-				h: 840,
-				c: 'thumb',
-		  })
+			w: 1600,
+			h: 840,
+			c: 'thumb',
+		})
 		: undefined;
 
 	return (
@@ -128,25 +129,46 @@ const Post = ({ publication, post }: PostProps) => {
 				/>
 				<style dangerouslySetInnerHTML={{ __html: highlightJsMonokaiTheme }}></style>
 			</Head>
-			<h1 className="text-4xl font-bold leading-tight tracking-tight text-black dark:text-white">
-				{post.title}
-			</h1>
-			<div className="flex tracking-tight gap-2 text-neutral-600 dark:text-neutral-400">
-				<DateFormatter dateString={post.publishedAt} />
-				{'•'}
-				<span>{post.readTimeInMinutes} min read</span>
+			<div style={{ marginTop: '70px' }}>
+				<h1
+					style={{
+						fontSize: '25px',
+						fontWeight: 400,
+					}}
+				>
+					{post.title}
+				</h1>
+				<p><i>
+					<DateFormatter dateString={post.publishedAt} />
+					{', '}
+					<span>{post.readTimeInMinutes} min read</span>
+				</i>
+				</p>
+				{!!coverImageSrc && (
+					<div>
+						<Image
+							width={590}
+							height={300}
+							style={{
+								width: '100%',
+								height: '100%',
+								overflow: 'hidden',
+								borderRadius: '0.375rem',
+							}}
+							src={coverImageSrc}
+							alt={`Cover Image for ${post.title}`}
+							unoptimized
+							priority={true}
+						/>
+					</div>
+				)}
+				<MarkdownToHtml contentMarkdown={post.content.markdown} />
+				{(post.tags ?? []).length > 0 && (
+					<div className="w-full mx-auto text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
+						<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
+					</div>
+				)}
 			</div>
-			{!!coverImageSrc && (
-				<div className="w-full">
-					<CoverImage title={post.title} priority={true} src={coverImageSrc} />
-				</div>
-			)}
-			<MarkdownToHtml contentMarkdown={post.content.markdown} />
-			{(post.tags ?? []).length > 0 && (
-				<div className="mx-auto w-full text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
-					<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
-				</div>
-			)}
 		</>
 	);
 };
@@ -170,16 +192,16 @@ export default function PostOrPage(props: Props) {
 
 	return (
 		<AppProvider publication={publication} post={maybePost} page={maybePage}>
-			<Layout>
-				<Container className="mx-auto flex max-w-3xl flex-col items-stretch gap-10 px-5 py-10">
-					<PersonalHeader />
-					<article className="flex flex-col items-start gap-10 pb-10">
-						{props.type === 'post' && <Post {...props} />}
-						{props.type === 'page' && <Page {...props} />}
-					</article>
-					<Footer />
-				</Container>
-			</Layout>
+			{/* <Layout> */}
+			{/* <Container className="flex flex-col items-stretch max-w-3xl gap-10 px-5 py-10 mx-auto"> */}
+			{/* <PersonalHeader /> */}
+			<article>
+				{props.type === 'post' && <Post {...props} />}
+				{props.type === 'page' && <Page {...props} />}
+			</article>
+			{/* <Footer /> */}
+			{/* </Container> */}
+			{/* </Layout> */}
 		</AppProvider>
 	);
 }

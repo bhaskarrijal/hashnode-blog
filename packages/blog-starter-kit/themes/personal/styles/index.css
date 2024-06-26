@@ -1,48 +1,219 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.hashnode-content-style{
-    @apply prose break-words text-slate-950 first:prose-p:mt-0 prose-img:max-w-full prose-p:leading-snug prose-a:underline hover:prose-a:bg-primary-50 dark:hover:prose-a:text-primary-500 dark:hover:prose-a:bg-neutral-800 dark:text-neutral-50 prose-blockquote:leading-snug prose-a:leading-snug prose-figure:leading-snug prose-figcaption:leading-snug prose-pre:leading-snug prose-li:leading-snug prose-ul:leading-snug prose-ol:leading-snug prose-th:leading-snug prose-td:leading-snug lg:prose-xl dark:prose-invert dark:prose-pre:bg-neutral-900 first:prose-h1:mt-0 first:prose-h2:mt-0 first:prose-h3:mt-0 first:prose-h4:mt-0 first:prose-h5:mt-0;
+/* Base styles */
+body {
+    line-height: 1.5;
+    font-size: 16px;
+    margin: 50px auto;
+    max-width: 590px;
+    padding: 0 16px;
+    color: #1a202c;
+    /* Dark text color for better readability */
+    background-color: #ffffff;
+    /* Light background color */
 }
 
-/* Override to remove the backtick */
-.hashnode-content-style :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before, .hashnode-content-style :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::after  {
-    content: none;
+body::-webkit-scrollbar {
+    width: 0px;
+    /* Hide scrollbar for cleaner look */
 }
 
-.prose code {
-    border-radius: 0.25rem;
-    font-weight: 400 !important;
-    padding: 0.25rem;
-    --tw-text-opacity: 1;
-    color: rgba(0, 0, 0, var(--tw-text-opacity));
-    font-size: 80%;
-    background: #f0efed;
-}
-  
-.dark .prose code {
-    --tw-bg-opacity: 1;
-    background-color: rgba(36, 41, 46, var(--tw-bg-opacity));
-    --tw-text-opacity: 1;
-    color: rgba(238, 238, 238, var(--tw-text-opacity));
-}
-  
-.prose pre {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-}
-  
-.prose pre code {
-    background-color: transparent;
-    border-radius: 0px;
-    font-weight: 500 !important;
-    padding: 0px;
-    font-size: 100%;
-    color: #fafafa;
+#main {
+    max-width: 42em;
+    margin: 15px auto;
 }
 
-.dark .prose pre code {
-    background-color: transparent;
-    color: #ddd;
+/* Minimal content styles */
+.hashnode-content-style {
+    color: #333333;
+    line-height: 1.6;
 }
+
+.hashnode-content-style p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 16px;
+}
+
+.hashnode-content-style h1 {
+    font-size: 24px;
+    margin-bottom: 0.5em;
+    color: #222222;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.hashnode-content-style h2 {
+    font-size: 22px;
+    margin-bottom: 0.5em;
+    color: #333333;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.hashnode-content-style h3 {
+    font-size: 20px;
+    margin-bottom: 0.5em;
+    color: #444444;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.hashnode-content-style h4 {
+    font-size: 18px;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: #555555;
+    font-style: italic;
+}
+
+.hashnode-content-style a {
+    text-decoration: underline;
+    color: #0000bb;
+    /* Blue color for links */
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth hover transition */
+}
+
+.hashnode-content-style a:hover {
+    background-color: #e0f7fa;
+    /* Light blue background on hover */
+    color: #0000bb;
+    /* Darker blue color on hover */
+}
+
+.hashnode-content-style code {
+    background-color: #f0efed;
+    /* Light background for code */
+    color: #fff;
+    /* Dark text for code */
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 0.9em;
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospaced font for code */
+}
+
+.hashnode-content-style pre {
+    background-color: #0F172A;
+    /* Light background for code blocks */
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+    /* Horizontal scroll for long code lines */
+}
+
+.hashnode-content-style pre code {
+    background: none;
+    padding: 0;
+    font-size: 1em;
+    /* Dark text for code in pre */
+}
+
+.hashnode-content-style blockquote {
+    margin: 1em 0;
+    padding-left: 1em;
+    border-left: 4px solid #0000bb;
+    /* Blue bar for blockquotes */
+    color: #666666;
+    /* Dark gray text for blockquotes */
+    font-style: italic;
+}
+
+.hashnode-content-style img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Table styles */
+.hashnode-content-style table {
+    width: 100%;
+    border-collapse: collapse;
+    /* No spacing between table cells */
+    margin-bottom: 1em;
+    font-size: 16px;
+    background-color: #fafafa;
+    /* Light background for tables */
+}
+
+.hashnode-content-style th,
+.hashnode-content-style td {
+    border: 1px solid #dddddd;
+    /* Light border for cells */
+    padding: 8px 12px;
+    text-align: left;
+    /* Align text to the left */
+    vertical-align: top;
+    /* Align content to the top of the cell */
+}
+
+.hashnode-content-style th {
+    background-color: #f0f0f0;
+    /* Slightly darker background for headers */
+    font-weight: bold;
+    color: #333333;
+    /* Dark text for headers */
+}
+
+.hashnode-content-style tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Alternating row background color */
+}
+
+.hashnode-content-style :where(div[data-node-type=callout]):not(:where([class~=not-prose], [class~=not-prose] *)) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 1rem 1.5rem;
+    gap: .5rem;
+    /* border-radius: .5rem; */
+    margin: 1rem 0;
+    word-break: break-word;
+}
+
+/* Dark mode adjustments */
+/* body.dark {
+    background-color: #181818;
+    color: #eeeeee; 
+}
+
+body.dark .hashnode-content-style a {
+    color: #1e90ff; 
+}
+
+body.dark .hashnode-content-style a:hover {
+    background-color: #1a202c; 
+    color: #1e90ff; 
+
+body.dark .hashnode-content-style code {
+    background-color: #2d2d2d; 
+    color: #eeeeee;
+}
+
+body.dark .hashnode-content-style pre {
+    background-color: #2d2d2d; 
+}
+
+body.dark .hashnode-content-style blockquote {
+    color: #bbbbbb; 
+}
+
+body.dark .hashnode-content-style table {
+    background-color: #222222; 
+    border-color: #444444;
+}
+
+body.dark .hashnode-content-style th,
+body.dark .hashnode-content-style td {
+    border: 1px solid #444444; 
+    color: #eeeeee; 
+}
+
+body.dark .hashnode-content-style th {
+    background-color: #333333; 
+}
+
+body.dark .hashnode-content-style tr:nth-child(even) {
+    background-color: #2a2a2a; 
+} */

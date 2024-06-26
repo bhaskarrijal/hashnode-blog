@@ -54,18 +54,18 @@ export function Integrations() {
         _paq.push(['setSiteId', '${encodeURI(matomoSiteID || '')}']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.type='text/javascript'; g.async=true; g.defer=true; g.src='//cdn.matomo.cloud/${encodeURI(
-					matomoURL || '',
-				)}/matomo.js'; s.parentNode.insertBefore(g,s);
+		matomoURL || '',
+	)}/matomo.js'; s.parentNode.insertBefore(g,s);
       })();
   `;
 
-	useEffect(() => {
-		// @ts-ignore
-		window.gtag('config', gaTrackingID, {
-			transport_url: 'https://ping.hashnode.com',
-			first_party_collection: true,
-		});
-	}, []);
+	// useEffect(() => {
+	// 	// @ts-ignore
+	// 	window.gtag('config', gaTrackingID, {
+	// 		transport_url: 'https://ping.hashnode.com',
+	// 		first_party_collection: true,
+	// 	});
+	// }, []);
 
 	return (
 		<>
