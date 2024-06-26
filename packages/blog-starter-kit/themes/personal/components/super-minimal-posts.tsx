@@ -17,7 +17,7 @@ export const SuperMinimalPosts = ({ posts }: Props) => {
                     author={{
                         name: post.author.name,
                     }}
-                    slug={post.slug}
+                    slug={'/blog/' + post.slug}
                     commentCount={post.comments?.totalDocuments}
                 />
             ))}
