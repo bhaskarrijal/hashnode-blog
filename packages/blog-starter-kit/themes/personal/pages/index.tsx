@@ -90,6 +90,9 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 					thoughts, opinions, ideas and experiences
 				</i></p>
 				{posts.length > 0 && <SuperMinimalPosts context="home" posts={posts} />}
+				<a href="/index.html">
+					back
+				</a>
 			</div>
 			{/* <Container className="flex flex-col items-stretch max-w-3xl gap-10 px-5 py-10 mx-auto">
 					<PersonalHeader />
