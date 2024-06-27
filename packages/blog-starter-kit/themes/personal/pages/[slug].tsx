@@ -143,6 +143,8 @@ const Post = ({ publication, post }: PostProps) => {
 					<DateFormatter dateString={post.publishedAt} />
 					{', '}
 					<span>{post.readTimeInMinutes} min read</span>
+					{', '}
+					<span>{post.author.name}</span>
 				</i>
 				</p>
 				{!!coverImageSrc && (
@@ -170,6 +172,9 @@ const Post = ({ publication, post }: PostProps) => {
 					</div>
 				)}
 			</div>
+			<hr />
+			<Footer />
+
 		</>
 	);
 };
