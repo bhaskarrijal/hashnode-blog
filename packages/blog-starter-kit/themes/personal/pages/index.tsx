@@ -58,7 +58,6 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 	};
 	return (
 		<AppProvider publication={publication}>
-			{/* <Layout> */}
 			<Head>
 				<title>{publication.title}</title>
 				<meta
@@ -85,32 +84,46 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 						__html: JSON.stringify(addPublicationJsonLd(publication)),
 					}}
 				/>
+				<style>{`
+					body {
+						line-height: 1.5;
+						font-size: 16px;
+						margin: 50px auto;
+						max-width: 590px;
+						padding: 0 16px;
+					}
+				`}</style>
 			</Head>
 			<div id="main" style={{ marginTop: '70px' }}>
-				<p style={{ fontSize: "25px" }}>bhaskar rijal blog</p>
-				<p><i>
-					thoughts, opinions, ideas and experiences
-				</i></p>
+				<header>
+					<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{publication.title}</h1>
+					<p style={{ marginTop: 0 }}>
+						thoughts, opinions, ideas and experiences
+					</p>
+				</header>
+				<nav>
+					<Link href="/">home</Link>{'/ '}
+					<Link href="/blog">blog</Link>{'/ '}
+					<Link href="/philosophy">philosophy</Link>{'/ '}
+				</nav>
 				{posts.length > 0 && <SuperMinimalPosts context="home" posts={posts} />}
-				<Link href="https://bhaskarrijal.me">
-					back
-				</Link>
+				<footer>
+					<details>
+						<summary>social</summary>
+						<nav>
+							<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
+							<a href="https://github.com/bhaskarrijal" target="_blank" rel="noopener">github</a>{'/ '}
+							<a href="https://twitter.com/bhaskarijal" target="_blank" rel="noopener">twitter</a>{'/ '}
+							<a href="https://orcid.org/0009-0003-6186-0397" target="_blank" rel="noopener">orcid</a>{'/ '}
+							<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
+							<a href="https://spacehey.com/sun69" target="_blank" rel="noopener">spacehey</a>{'/ '}
+						</nav>
+					</details>
+					<p style={{ fontSize: "12px" }}>
+						bhaskar rijal &copy; 1999
+					</p>
+				</footer>
 			</div>
-			{/* <Container className="flex flex-col items-stretch max-w-3xl gap-10 px-5 py-10 mx-auto">
-					<PersonalHeader />
-					{posts.length > 0 && <MinimalPosts context="home" posts={posts} />}
-					{!loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
-						<button onClick={loadMore}>
-							Load more
-						</button>
-					)}
-					{loadedMore && pageInfo.hasNextPage && pageInfo.endCursor && (
-						<Waypoint onEnter={loadMore} bottomOffset={'10%'} />
-					)}
-
-					<Footer />
-				</Container> */}
-			{/* </Layout> */}
 		</AppProvider>
 	);
 }

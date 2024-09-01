@@ -129,34 +129,32 @@ const Post = ({ publication, post }: PostProps) => {
 					}}
 				/>
 				<style dangerouslySetInnerHTML={{ __html: highlightJsMonokaiTheme }}></style>
+				<style>{`
+					body {
+						line-height: 1.5;
+						font-size: 16px;
+						margin: 50px auto;
+						max-width: 590px;
+						padding: 0 16px;
+					}
+				`}</style>
 			</Head>
-			<div style={{ marginTop: '70px' }}>
-				<h1
-					style={{
-						fontSize: '25px',
-						fontWeight: 400,
-					}}
-				>
-					{post.title}
-				</h1>
-				<p><i>
-					<DateFormatter dateString={post.publishedAt} />
-					{', '}
-					<span>{post.readTimeInMinutes} min read</span>
-					{', '}
-					<span>{post.author.name}</span>
-				</i>
+			<div id="main" style={{ marginTop: '70px' }}>
+				<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{post.title}</h1>
+				<p style={{ marginTop: 0 }}>
+					{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.')}
+					{' / '}
+					<span>{post.author.name.toLowerCase()}</span>
 				</p>
 				{!!coverImageSrc && (
-					<div>
+					<div style={{ marginBottom: '20px', marginTop: '20px' }}>
 						<Image
 							width={590}
 							height={300}
 							style={{
 								width: '100%',
-								height: '100%',
-								overflow: 'hidden',
-								borderRadius: '0.375rem',
+								height: 'auto',
+								borderRadius: '4px',
 							}}
 							src={coverImageSrc}
 							alt={`Cover Image for ${post.title}`}
@@ -167,14 +165,29 @@ const Post = ({ publication, post }: PostProps) => {
 				)}
 				<MarkdownToHtml contentMarkdown={post.content.markdown} />
 				{(post.tags ?? []).length > 0 && (
-					<div className="w-full mx-auto text-slate-600 dark:text-neutral-300 md:max-w-screen-md">
-						<ul className="flex flex-row flex-wrap items-center gap-2">{tagsList}</ul>
+					<div style={{ marginTop: '20px' }}>
+						<ul style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', listStyle: 'none', padding: 0 }}>
+							{tagsList}
+						</ul>
 					</div>
 				)}
+				<details>
+					<summary>social</summary>
+					<nav>
+						<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
+						<a href="https://github.com/bhaskarrijal" target="_blank" rel="noopener">github</a>{'/ '}
+						<a href="https://twitter.com/bhaskarijal" target="_blank" rel="noopener">twitter</a>{'/ '}
+						<a href="https://orcid.org/0009-0003-6186-0397" target="_blank" rel="noopener">orcid</a>{'/ '}
+						<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
+						<a href="https://spacehey.com/sun69" target="_blank" rel="noopener">spacehey</a>{'/ '}
+					</nav>
+				</details>
+				<footer>
+					<p style={{ fontSize: "12px" }}>
+						bhaskar rijal &copy; 1999
+					</p>
+				</footer>
 			</div>
-			<hr />
-			<Footer />
-
 		</>
 	);
 };

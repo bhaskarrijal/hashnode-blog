@@ -1,26 +1,38 @@
+import Link from 'next/link';
 import { PostFragment } from '../generated/graphql';
-import { SuperMinimalPostPreview } from './super-minimal-post-preview';
 
 type Props = {
+    context: string;
     posts: PostFragment[];
-    context: 'home' | 'series' | 'tag';
 };
 
-export const SuperMinimalPosts = ({ posts }: Props) => {
+export function SuperMinimalPosts({ context, posts }: Props) {
     return (
-        <>
-            {posts.map((post) => (
-                <SuperMinimalPostPreview
-                    key={post.id}
-                    title={post.title}
-                    date={post.publishedAt}
-                    author={{
-                        name: post.author.name,
-                    }}
-                    slug={'/blog/' + post.slug}
-                    commentCount={post.comments?.totalDocuments}
-                />
-            ))}
-        </>
+        <div style={{ paddingBottom: '1em' }}>
+            <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+                <tbody>
+                    {posts.map((post, index) => (
+                        <tr key={post.id}>
+                            <td
+                                style={{
+                                    paddingRight: '20px',
+                                    whiteSpace: 'nowrap',
+                                    verticalAlign: 'top',
+                                    paddingTop: index === 0 ? '1em' : '0',
+                                    width: '1%',
+                                }}
+                            >
+                                [{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.')}]
+                            </td>
+                            <td style={{ paddingTop: index === 0 ? '1em' : '0' }}>
+                                <Link href={`/${post.slug}`}>
+                                    {post.title}
+                                </Link>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
-};
+}
