@@ -140,12 +140,17 @@ const Post = ({ publication, post }: PostProps) => {
 				`}</style>
 			</Head>
 			<div id="main" style={{ marginTop: '70px' }}>
-				<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{post.title}</h1>
-				<p style={{ marginTop: 0 }}>
-					{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.')}
-					{' / '}
-					<span>{post.author.name.toLowerCase()}</span>
-				</p>
+				<header>
+					<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{post.title.toLowerCase()}</h1>
+					<p style={{ marginTop: 0 }}>
+						{post?.subtitle?.toLowerCase()}
+					</p>
+				</header>
+				<nav>
+					<Link href="/">home</Link>{'/ '}
+					<Link href="/blog">blog</Link>{'/ '}
+					<Link href="/philosophy">philosophy</Link>{'/ '}
+				</nav>
 				{!!coverImageSrc && (
 					<div style={{ marginBottom: '20px', marginTop: '20px' }}>
 						<Image
@@ -163,6 +168,14 @@ const Post = ({ publication, post }: PostProps) => {
 						/>
 					</div>
 				)}
+				<p>
+					[
+					{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.').toLowerCase()}
+					]
+					[
+					<span>{post.author.name.toLowerCase()}</span>
+					]
+				</p>
 				<MarkdownToHtml contentMarkdown={post.content.markdown} />
 				{(post.tags ?? []).length > 0 && (
 					<div style={{ marginTop: '20px' }}>
