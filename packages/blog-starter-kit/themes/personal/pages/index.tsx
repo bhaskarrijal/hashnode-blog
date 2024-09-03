@@ -105,6 +105,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 					<Link href="/">home</Link>{'/ '}
 					<Link href="/blog">blog</Link>{'/ '}
 					<Link href="/philosophy">philosophy</Link>{'/ '}
+					<Link href="/research">research</Link>{'/ '}
 				</nav>
 				{posts.length > 0 && <SuperMinimalPosts context="home" posts={posts} />}
 				<footer>

@@ -150,6 +150,7 @@ const Post = ({ publication, post }: PostProps) => {
 					<Link href="/">home</Link>{'/ '}
 					<Link href="/blog">blog</Link>{'/ '}
 					<Link href="/philosophy">philosophy</Link>{'/ '}
+					<Link href="/research">research</Link>{'/ '}
 				</nav>
 				{!!coverImageSrc && (
 					<div style={{ marginBottom: '20px', marginTop: '20px' }}>
