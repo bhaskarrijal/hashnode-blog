@@ -117,7 +117,6 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 							<a href="https://twitter.com/bhaskarijal" target="_blank" rel="noopener">twitter</a>{'/ '}
 							<a href="https://orcid.org/0009-0003-6186-0397" target="_blank" rel="noopener">orcid</a>{'/ '}
 							<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
-							<a href="https://spacehey.com/sun69" target="_blank" rel="noopener">spacehey</a>{'/ '}
 						</nav>
 					</details>
 					<p style={{ fontSize: "12px" }}>
