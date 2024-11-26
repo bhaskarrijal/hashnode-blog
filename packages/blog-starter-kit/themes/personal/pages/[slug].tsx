@@ -185,20 +185,36 @@ const Post = ({ publication, post }: PostProps) => {
 						</ul>
 					</div>
 				)}
-				<details>
-					<summary>social</summary>
-					<nav>
-						<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
-						<a href="https://github.com/bhaskarrijal" target="_blank" rel="noopener">github</a>{'/ '}
-						<a href="https://twitter.com/bhaskarijal" target="_blank" rel="noopener">twitter</a>{'/ '}
-						<a href="https://orcid.org/0009-0003-6186-0397" target="_blank" rel="noopener">orcid</a>{'/ '}
-						<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
-					</nav>
-				</details>
 				<footer>
-					<p style={{ fontSize: "12px" }}>
-						bhaskar rijal &copy; 1999
-					</p>
+					<details>
+						<summary>social</summary>
+						<nav>
+							<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
+							<a href="https://github.com/bhaskarrijal" target="_blank" rel="noopener">github</a>{'/ '}
+							<a href="https://twitter.com/bhaskarijal" target="_blank" rel="noopener">twitter</a>{'/ '}
+							<a href="https://orcid.org/0009-0003-6186-0397" target="_blank" rel="noopener">orcid</a>{'/ '}
+							<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
+						</nav>
+					</details>
+					<hr style={{ borderTop: '1px solid #ebebeb' }} />
+					<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '-10px' }}>
+						<p style={{ fontSize: '12px' }}>
+							bhaskar rijal &copy; 1999
+						</p>
+						<p style={{ fontSize: '12px', display: 'flex', gap: '5px', alignItems: 'center' }}>
+							<span>open for collaborations</span>
+							<svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="15px" width="15px" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12 4m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+								<path d="M4 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+								<path d="M20 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+								<path d="M12 20m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+								<path d="M5.5 5.5l3 3"></path>
+								<path d="M15.5 15.5l3 3"></path>
+								<path d="M18.5 5.5l-3 3"></path>
+								<path d="M8.5 15.5l-3 3"></path>
+							</svg>
+						</p>
+					</div>
 				</footer>
 			</div>
 		</>
