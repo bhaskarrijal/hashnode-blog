@@ -141,17 +141,30 @@ const Post = ({ publication, post }: PostProps) => {
 			</Head>
 			<div id="main" style={{ marginTop: '70px' }}>
 				<header>
-					<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{post.title.toLowerCase()}</h1>
-					<p style={{ marginTop: 0 }}>
-						{post?.subtitle?.toLowerCase()}
+					<p>
+						[
+						<a href={`https://bhaskarrijal.me`} target="_blank" rel="noopener">{post.author.name.toLowerCase()}</a>
+						]
+						[
+						<a href={`https://bhaskarrijal.me/blog`} target="_blank" rel="noopener">blog</a>
+						]
+						[
+						{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.').toLowerCase()}
+						]
 					</p>
+					{/* <nav>
+						<Link href="/">home</Link>{'/ '}
+						<Link href="/blog">blog</Link>{'/ '}
+						<Link href="/philosophy.html">philosophy</Link>{'/ '}
+						<Link href="/research.html">projects & research</Link>{'/ '}
+					</nav> */}
+					<h1 style={{ fontSize: "25px", marginBottom: 0, marginTop: 0 }}>{post.title.toLowerCase()}</h1>
+					<i style={{ marginTop: 0 }}>
+						{post?.subtitle?.toLowerCase()}
+					</i>
+
 				</header>
-				<nav>
-					<Link href="/">home</Link>{'/ '}
-					<Link href="/blog">blog</Link>{'/ '}
-					<Link href="/philosophy.html">philosophy</Link>{'/ '}
-					<Link href="/research.html">projects & research</Link>{'/ '}
-				</nav>
+
 				{!!coverImageSrc && (
 					<div style={{ marginBottom: '20px', marginTop: '20px' }}>
 						<Image
@@ -159,8 +172,10 @@ const Post = ({ publication, post }: PostProps) => {
 							height={300}
 							style={{
 								width: '100%',
-								height: 'auto',
-								borderRadius: '4px',
+								height: '100%',
+								borderRadius: '0px',
+								aspectRatio: '21/9',
+								objectFit: 'cover',
 							}}
 							src={coverImageSrc}
 							alt={`Cover Image for ${post.title}`}
@@ -169,14 +184,7 @@ const Post = ({ publication, post }: PostProps) => {
 						/>
 					</div>
 				)}
-				<p>
-					[
-					{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.').toLowerCase()}
-					]
-					[
-					<span>{post.author.name.toLowerCase()}</span>
-					]
-				</p>
+
 				<MarkdownToHtml contentMarkdown={post.content.markdown} />
 				{(post.tags ?? []).length > 0 && (
 					<div style={{ marginTop: '20px' }}>
