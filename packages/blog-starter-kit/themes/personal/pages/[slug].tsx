@@ -143,10 +143,10 @@ const Post = ({ publication, post }: PostProps) => {
 				<header>
 					<p>
 						[
-						<a href={`https://bhaskarrijal.me`} target="_blank" rel="noopener">{post.author.name.toLowerCase()}</a>
+						<a href={`https://bhaskarrijal.me`} rel="noopener">{post.author.name.toLowerCase()}</a>
 						]
 						[
-						<a href={`https://bhaskarrijal.me/blog`} target="_blank" rel="noopener">blog</a>
+						<a href={`https://bhaskarrijal.me/blog`} rel="noopener">blog</a>
 						]
 						[
 						{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.').toLowerCase()}
