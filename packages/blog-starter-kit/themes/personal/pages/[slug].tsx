@@ -87,8 +87,8 @@ const Post = ({ publication, post }: PostProps) => {
 
 	const coverImageSrc = !!post.coverImage?.url
 		? resizeImage(post.coverImage.url, {
-			w: 1600,
-			h: 840,
+			w: 1200,
+			h: 630,
 			c: 'thumb',
 		})
 		: undefined;
@@ -168,14 +168,13 @@ const Post = ({ publication, post }: PostProps) => {
 				{!!coverImageSrc && (
 					<div style={{ marginBottom: '20px', marginTop: '20px' }}>
 						<Image
-							width={590}
-							height={300}
+							width={1200}
+							height={630}
 							style={{
 								width: '100%',
 								height: '100%',
 								borderRadius: '0px',
-								aspectRatio: '21/9',
-								objectFit: 'cover',
+								objectFit: 'contain',
 							}}
 							src={coverImageSrc}
 							alt={`Cover Image for ${post.title}`}
