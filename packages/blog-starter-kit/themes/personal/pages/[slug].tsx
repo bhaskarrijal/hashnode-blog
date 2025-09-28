@@ -141,7 +141,7 @@ const Post = ({ publication, post }: PostProps) => {
 			</Head>
 			<div id="main" style={{ marginTop: '70px' }}>
 				<header>
-					<p>
+					{/* <p>
 						[
 						<a href={`https://bhaskarrijal.me`} rel="noopener">{post.author.name.toLowerCase()}</a>
 						]
@@ -151,17 +151,20 @@ const Post = ({ publication, post }: PostProps) => {
 						[
 						{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.').toLowerCase()}
 						]
-					</p>
-					{/* <nav>
+					</p> */}
+					<nav>
 						<Link href="/">home</Link>{'/ '}
 						<Link href="/blog">blog</Link>{'/ '}
-						<Link href="/philosophy.html">philosophy</Link>{'/ '}
-						<Link href="/research.html">projects & research</Link>{'/ '}
-					</nav> */}
-					<h1 style={{ fontSize: "25px", marginBottom: 0, marginTop: 0 }}>{post.title.toLowerCase()}</h1>
-					<i style={{ marginTop: 0 }}>
+						<Link href="/projects.html">projects</Link>{'/ '}
+					</nav>
+					<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{post.title.toLowerCase()}</h1>
+					<p style={{ marginTop: 0 }}>
 						{post?.subtitle?.toLowerCase()}
-					</i>
+					</p>
+					<p style={{ marginTop: -5, marginBottom: -5, color: '#777', fontSize: '13px' }}>
+						{post.author.name.toLowerCase()}{' / '}
+						{new Date(post.publishedAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).replace(/\//g, '.')}
+					</p>
 
 				</header>
 
@@ -203,7 +206,7 @@ const Post = ({ publication, post }: PostProps) => {
 							<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
 						</nav>
 					</details>
-					<hr style={{ borderTop: '1px solid #ebebeb' }} />
+					{/* {/* <hr style={{ borderTop: '1px solid #ebebeb' }} />
 					<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '-10px' }}>
 						<p style={{ fontSize: '12px' }}>
 							bhaskar rijal &copy; 1999
@@ -221,7 +224,7 @@ const Post = ({ publication, post }: PostProps) => {
 								<path d="M8.5 15.5l-3 3"></path>
 							</svg>
 						</p>
-					</div>
+					</div> */}
 				</footer>
 			</div>
 		</>

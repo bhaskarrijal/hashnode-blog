@@ -95,19 +95,19 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 				`}</style>
 			</Head>
 			<div id="main" style={{ marginTop: '70px' }}>
+				<nav>
+					<Link href="/">home</Link>{'/ '}
+					<Link href="/blog">blog</Link>{'/ '}
+					{/* <Link href="/philosophy.html">philosophy</Link>{'/ '}
+					<Link href="/research.html">research</Link>{'/ '} */}
+					<Link href="/projects.html">projects</Link>{'/ '}
+				</nav>
 				<header>
 					<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{publication.title}</h1>
 					<p style={{ marginTop: 0 }}>
 						thoughts, opinions, ideas and experiences
 					</p>
 				</header>
-				<nav>
-					<Link href="/">home</Link>{'/ '}
-					<Link href="/blog">blog</Link>{'/ '}
-					<Link href="/philosophy.html">philosophy</Link>{'/ '}
-					<Link href="/research.html">research</Link>{'/ '}
-					<Link href="/projects.html">generalprojects</Link>{'/ '}
-				</nav>
 				{posts.length > 0 && <SuperMinimalPosts context="home" posts={posts} />}
 				<footer>
 					<details>
@@ -120,7 +120,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 							<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
 						</nav>
 					</details>
-					<hr style={{ borderTop: '1px solid #ebebeb' }} />
+					{/* <hr style={{ borderTop: '1px solid #ebebeb' }} />
 					<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: '-10px' }}>
 						<p style={{ fontSize: '12px' }}>
 							bhaskar rijal &copy; 1999
@@ -138,7 +138,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 								<path d="M8.5 15.5l-3 3"></path>
 							</svg>
 						</p>
-					</div>
+					</div> */}
 				</footer>
 			</div>
 		</AppProvider>
