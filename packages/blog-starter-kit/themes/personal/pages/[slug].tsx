@@ -155,7 +155,7 @@ const Post = ({ publication, post }: PostProps) => {
 					<nav>
 						<Link href="/">home</Link>{'/ '}
 						<Link href="/blog">blog</Link>{'/ '}
-						<Link href="/projects.html">projects</Link>{'/ '}
+						{/* <Link href="/projects.html">projects</Link>{'/ '} */}
 					</nav>
 					<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{post.title.toLowerCase()}</h1>
 					<p style={{ marginTop: 0 }}>
@@ -196,7 +196,7 @@ const Post = ({ publication, post }: PostProps) => {
 					</div>
 				)}
 				<footer>
-					<details>
+					<details open>
 						<summary>social</summary>
 						<nav>
 							<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
