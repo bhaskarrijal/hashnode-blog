@@ -202,8 +202,6 @@ const Post = ({ publication, post }: PostProps) => {
 							<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
 							<a href="https://github.com/bhaskarrijal" target="_blank" rel="noopener">github</a>{'/ '}
 							<a href="https://twitter.com/bhaskarijal" target="_blank" rel="noopener">twitter</a>{'/ '}
-							<a href="https://orcid.org/0009-0003-6186-0397" target="_blank" rel="noopener">orcid</a>{'/ '}
-							<a href="https://www.researchgate.net/profile/Bhaskar-Rijal" target="_blank" rel="noopener">researchgate</a>{'/ '}
 						</nav>
 					</details>
 					{/* {/* <hr style={{ borderTop: '1px solid #ebebeb' }} />
