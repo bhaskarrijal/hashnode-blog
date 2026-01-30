@@ -197,7 +197,7 @@ const Post = ({ publication, post }: PostProps) => {
 				)}
 				<footer>
 					<details open>
-						<summary>let's connect</summary>
+						<summary>let&apos;s connect</summary>
 						<nav>
 							<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
 							<a href="https://github.com/bhaskarrijal" target="_blank" rel="noopener">github</a>{'/ '}
