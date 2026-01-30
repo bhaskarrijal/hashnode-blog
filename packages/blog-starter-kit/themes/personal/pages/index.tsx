@@ -100,7 +100,7 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 					<Link href="/blog">blog</Link>{'/ '}
 					{/* <Link href="/philosophy.html">philosophy</Link>{'/ '}
 					<Link href="/research.html">research</Link>{'/ '} */}
-					<Link href="/projects.html">projects</Link>{'/ '}
+					{/* <Link href="/projects.html">projects</Link>{'/ '} */}
 				</nav>
 				<header>
 					<h1 style={{ fontSize: "25px", marginBottom: 0 }}>{publication.title}</h1>
@@ -110,8 +110,8 @@ export default function Index({ publication, initialPosts, initialPageInfo }: Pr
 				</header>
 				{posts.length > 0 && <SuperMinimalPosts context="home" posts={posts} />}
 				<footer>
-					<details>
-						<summary>social</summary>
+					<details open>
+						<summary>let's connect</summary>
 						<nav>
 							<a href="https://www.linkedin.com/in/bhaskarrijal" target="_blank" rel="noopener">linkedin</a>{'/ '}
 							<a href="https://github.com/bhaskarrijal" target="_blank" rel="noopener">github</a>{'/ '}
