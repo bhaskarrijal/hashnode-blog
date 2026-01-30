@@ -134,7 +134,7 @@ const Post = ({ publication, post }: PostProps) => {
 						line-height: 1.5;
 						font-size: 16px;
 						margin: 50px auto;
-						max-width: 590px;
+						max-width: 670px;
 						padding: 0 16px;
 					}
 				`}</style>
